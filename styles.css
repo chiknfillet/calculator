@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    border: 3px solid grey;
+    padding: 10px;
+    height: 500px;
+    width: 400px;
+    text-align: center;
+}
+
+.display {
+    border: 3px solid grey;
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 36px;
+    height: 100px;
+    width: auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.buttons > div {
+    border: 2px solid grey;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
