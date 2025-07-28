@@ -17,26 +17,26 @@ function divide(numOne, numTwo) {
 function operate() {
     let content = display.textContent
     let numTwo = Number(content.slice( content.indexOf(operand) + 1 ))
-    let result 
     
     switch(operand) {
         case "+":
-            result = add(numOne, numTwo)
+            numOne = add(numOne, numTwo)
             break;
         case "-":
-            result = subtract(numOne, numTwo)
+            numOne = subtract(numOne, numTwo)
             break;
         case "x":
-            result = multiply(numOne, numTwo)
+            numOne = multiply(numOne, numTwo)
             break;
         case "/":
-            result = divide(numOne, numTwo)
+            numOne = divide(numOne, numTwo)
             break;
         default:
             break;
     }
-
-    display.textContent = result
+    
+    operand = ""
+    display.textContent = numOne
 }
 
 let operand = ""
@@ -54,7 +54,12 @@ digitButtons.forEach(element => {
 const operatorButtons = document.querySelectorAll(".operator")
 operatorButtons.forEach(element => {
     element.addEventListener("click", () => {
-        numOne = Number(display.textContent)
+        if (operand === "") {
+            numOne = Number(display.textContent)
+        } else {
+            operate()
+        }
+        
         display.textContent += element.textContent
         operand = element.textContent
     })
